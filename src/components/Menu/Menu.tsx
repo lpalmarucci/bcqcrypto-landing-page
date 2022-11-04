@@ -11,10 +11,9 @@ import Button from "components/Button/Button";
 import useMediaQuery from "hooks/useMediaQuery";
 import Mobile from "./Mobile/Mobile";
 
-interface BlobStyle{
+interface CursorStyle{
   left: number;
-  width: number;
-  height?: number;
+  width: any;
 }
 
 //padding of cursor
@@ -24,20 +23,21 @@ const Header: React.FC = () => {
   const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const menuWrapperRef = useRef<HTMLDivElement>(null);
-  const [blobStyle, setBlobStyle] = useState<BlobStyle>({left: 0, width: 0, height: 0});
+  const [cursorStyle, setCursorStyle] = useState<CursorStyle>({left: -blobPadding / 2, width: 0});
 
-  const moveBlob = (e: React.MouseEvent<HTMLElement>) => {
+  const animateBlob = (e: React.MouseEvent<HTMLElement>) => {
     const {left, width} = e.currentTarget.getBoundingClientRect()
     let menuItemsWrapper = menuWrapperRef.current?.getBoundingClientRect();
     document.querySelectorAll(".menu-item").forEach((menuItem: Element) => {
       menuItem.classList.remove('active')
     })
     e.currentTarget.classList.add('active');
-    setBlobStyle(() => ({
+    setCursorStyle({
       left: left - (menuItemsWrapper?.left || 0) - (blobPadding / 2),
       width: width + blobPadding
-    }));
+    });
   }
+
 
   return (
     <StyledHeader>
@@ -46,11 +46,11 @@ const Header: React.FC = () => {
           <StyledGroup>
             <StyledLogo src={Logo} alt="Logo" />
             <StyledMenuItems ref={menuWrapperRef}>
-              <StyledMenuItem hoverAnimation={false} onClick={moveBlob} className="menu-item">Home</StyledMenuItem>
-              <StyledMenuItem hoverAnimation={false} onClick={moveBlob} className="menu-item">Wallet</StyledMenuItem>
-              <StyledMenuItem hoverAnimation={false} onClick={moveBlob} className="menu-item">Exchange</StyledMenuItem>
-              <StyledMenuItem hoverAnimation={false} onClick={moveBlob} className="menu-item">Explorer</StyledMenuItem>
-              <StyledBlob className={"blob"} style={blobStyle}/>
+              <StyledMenuItem hoverAnimation={false} onClick={animateBlob} className="menu-item" href="#home">Home</StyledMenuItem>
+              <StyledMenuItem hoverAnimation={false} onClick={animateBlob} className="menu-item" href="#findout">Find out</StyledMenuItem>
+              <StyledMenuItem hoverAnimation={false} onClick={animateBlob} className="menu-item" href="#advantages">Advantages</StyledMenuItem>
+              <StyledMenuItem hoverAnimation={false} onClick={animateBlob} className="menu-item" href="#none">Explorer</StyledMenuItem>
+              <StyledBlob style={cursorStyle}/>
             </StyledMenuItems>
           </StyledGroup>
           <StyledGroup>

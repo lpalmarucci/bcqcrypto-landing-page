@@ -17,6 +17,7 @@ export const StyledHeader = styled.header`
 export const StyledLogo = styled.img`
   margin-right: 4em;
   cursor: pointer;
+  z-index: 99;
 `;
 export const StyledGroup = styled.div`
   display: flex;
@@ -41,10 +42,11 @@ export const StyledMenuItems = styled.div.attrs(({ref}) => ({ref}))`
   position: relative;
 `;
 
-export const StyledMenuItem = styled.nav<{
+export const StyledMenuItem = styled.a<{
   type?: string;
   hoverAnimation?: boolean;
 }>`
+  text-decoration: none;
   color: ${(props) => (props.color ? props.color : `#353535`)};
   font-size: 16px;
   font-weight: 300;
