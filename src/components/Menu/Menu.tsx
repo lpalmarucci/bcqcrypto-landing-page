@@ -14,27 +14,28 @@ import Mobile from "./Mobile/Mobile";
 interface BlobStyle{
   left: number;
   width: number;
-  height: number;
+  height?: number;
 }
 
+//padding of cursor
+const blobPadding = 20;
+
 const Header: React.FC = () => {
-  const isDesktop = useMediaQuery("(min-width: 768px)");
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
 
   const menuWrapperRef = useRef<HTMLDivElement>(null);
   const [blobStyle, setBlobStyle] = useState<BlobStyle>({left: 0, width: 0, height: 0});
 
   const moveBlob = (e: React.MouseEvent<HTMLElement>) => {
-    const {left, width, height} = e.currentTarget.getBoundingClientRect()
+    const {left, width} = e.currentTarget.getBoundingClientRect()
     let menuItemsWrapper = menuWrapperRef.current?.getBoundingClientRect();
     document.querySelectorAll(".menu-item").forEach((menuItem: Element) => {
       menuItem.classList.remove('active')
     })
     e.currentTarget.classList.add('active');
-
     setBlobStyle(() => ({
-      left: left - (menuItemsWrapper?.left || 0) - 12,
-      width: width + 24,
-      height: height + 8
+      left: left - (menuItemsWrapper?.left || 0) - (blobPadding / 2),
+      width: width + blobPadding
     }));
   }
 
