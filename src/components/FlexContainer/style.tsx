@@ -15,7 +15,7 @@ export const StyledFlex = styled(motion.div)<IFlexProps>`
     align-items: ${props => props.alignitems ? props.alignitems : 'center'};
     gap: ${props => props.gap ? props.gap : '0'};
 
-    @media (max-width: 768px){
+    @media (max-width: 1024px){
         padding: 2em;
     }
 `

@@ -28,7 +28,7 @@ export const StyledGroup = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 `;
@@ -50,7 +50,7 @@ export const StyledMenuItem = styled.nav<{
   font-weight: 300;
   line-height: 30px;
   cursor: pointer;
-  transition: all 0.5s;
+  transition: all 0.3s;
   user-select: none;
   position: relative;
   overflow: hidden;
@@ -90,9 +90,9 @@ export const StyledMenuItem = styled.nav<{
     
     `}
 
-    @media (max-width: 768px) {
-    display: none;
-  }
+    @media (max-width: 1024px) {
+      display: none;
+    }
   
   &.active{
     color: #fff !important;
@@ -102,9 +102,9 @@ export const StyledMenuItem = styled.nav<{
 export const StyledBlob = styled.div`
   background-color: var(--blue-primary);   
   width: 100px;
-  height: 35px; 
+  height: calc(100% + 6px); 
   border-radius: 10px;
-  transition: all .2s;
+  transition: all .3s;
   position: absolute;
   z-index: 1;
 `
