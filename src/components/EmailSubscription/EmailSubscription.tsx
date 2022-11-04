@@ -6,7 +6,7 @@ const EmailSubscription = () => {
   return (
     <StyledSubscriptionWrapper>
         <StyledInputEmail type="email" placeholder='Enter your email'/>
-        <Button text="Try now"/>
+        <Button text="Try now" variant="primary"/>
     </StyledSubscriptionWrapper>
   )
 }

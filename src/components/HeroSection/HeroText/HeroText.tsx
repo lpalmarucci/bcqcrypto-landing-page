@@ -18,11 +18,12 @@ const HeroText: React.FC<IProps> = ({
   return (
     <FlexContainer
       direction='column'
-      justifyContent='flex-start'
+      justifyContent='center'
+      alignItems='flex-start'
     >
       <>
         {joinText && <StyledJoinText>{joinText}</StyledJoinText>}
-        <StyledHeroTitle dangerouslySetInnerHTML={{__html: title}} />
+        <StyledHeroTitle>{title}</StyledHeroTitle>
         <StyledSubTitle>{subtitle}</StyledSubTitle>
         <StyledChildrenWrapper>
           {children ? children: null}

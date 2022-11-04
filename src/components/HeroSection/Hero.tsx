@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyledHeroWrapper, StyledSide } from './style'
 import HeroText from './HeroText/HeroText';
-import EmailSubscription from 'components/EmailSubscription/EmailSubscription';
 
 interface IProps{
   joinText?: string;
@@ -42,9 +41,10 @@ const Hero: React.FC<IProps> = ({
   heroTextChildren,
   childrenRightSide,
 }): JSX.Element => {
-
   return (
-    <StyledHeroWrapper padding={layout.padding}>
+    <StyledHeroWrapper 
+      padding={layout.padding}
+    >
       <StyledSide position={layout.invert ? 'right' : 'left'} {...layout['left']}>
         <HeroText 
           joinText={joinText}

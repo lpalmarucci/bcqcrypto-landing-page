@@ -12,6 +12,7 @@ export const StyledHeroTitle = styled.h1`
     font-weight: 700;
     font-size: 64px;
     margin-top: 10px;
+    max-width: 600px;
 `
 
 export const StyledSubTitle = styled.h3`
@@ -21,6 +22,9 @@ export const StyledSubTitle = styled.h3`
     color: #848484;
     width: clamp(100px, 30em, 500px);
     margin-top: 30px;
+    word-break: break-word;
+    width: 100%;
+    max-width: 650px;
 `
 
 export const StyledChildrenWrapper = styled.div`

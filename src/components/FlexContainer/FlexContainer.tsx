@@ -8,7 +8,6 @@ interface IProps{
   gap?: string;
   children: JSX.Element
 }
-
 const FlexContainer: React.FC<IProps> = ({ 
   direction,
   justifyContent,
@@ -16,12 +15,29 @@ const FlexContainer: React.FC<IProps> = ({
   gap,
   children
 }) => {
+
   return (
     <StyledFlex
       direction={direction}
-      justifyContent={justifyContent}
-      alignItems={alignItems}
+      justifycontent={justifyContent}
+      alignitems={alignItems}
       gap={gap}
+      viewport={{
+        once: true,
+        amount: 'all'
+      }}
+      initial={{
+        opacity: 0,
+        transform: "translateY(10px)"
+      }}
+      transition={{
+        duration: .5,
+        type:"ease"
+      }}
+      whileInView={{
+        opacity: 1,
+        transform: "translateY(0px)"
+      }}
     >
         {children}
     </StyledFlex>
