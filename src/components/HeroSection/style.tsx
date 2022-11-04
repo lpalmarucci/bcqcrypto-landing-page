@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const StyledSide = styled.div<{position?: string, backgroundColor?: string, size?: number}>`
+export const StyledSide = styled.div<{position?: string, backgroundColor?: string, size?: number, sticky?: boolean}>`
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: ${props => props.backgroundColor};
-
+    ${props => props.sticky && `
+      position: sticky;
+      top: 120px;  
+    `}
     ${props => {
         if(props.position === 'left'){
             return `

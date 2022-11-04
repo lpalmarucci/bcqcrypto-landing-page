@@ -6,20 +6,27 @@ interface IProps{
   joinText?: string;
   title: string;
   subtitle: string;
-  children: JSX.Element
+  children: JSX.Element,
+  sticky: boolean,
 }
 
 const HeroText: React.FC<IProps> = ({
     joinText,
     title,
     subtitle,
-    children
+    children,
+    sticky
 }) => {
+  const style: React.CSSProperties = sticky ? {
+    position: 'sticky',
+    top: '120px'
+  } : {};
   return (
     <FlexContainer
       direction='column'
       justifyContent='center'
       alignItems='flex-start'
+      styles={style}
     >
       <>
         {joinText && <StyledJoinText>{joinText}</StyledJoinText>}

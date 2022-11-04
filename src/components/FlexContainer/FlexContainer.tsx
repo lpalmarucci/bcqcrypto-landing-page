@@ -6,14 +6,16 @@ interface IProps{
   justifyContent?: string;
   alignItems?: string;
   gap?: string;
-  children: JSX.Element
+  children: JSX.Element,
+  styles?: React.CSSProperties
 }
 const FlexContainer: React.FC<IProps> = ({ 
   direction,
   justifyContent,
   alignItems,
   gap,
-  children
+  children,
+                                           styles= {}
 }) => {
 
   return (
@@ -38,6 +40,7 @@ const FlexContainer: React.FC<IProps> = ({
         opacity: 1,
         transform: "translateY(0px)"
       }}
+      style={styles}
     >
         {children}
     </StyledFlex>

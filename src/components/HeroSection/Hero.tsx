@@ -4,6 +4,7 @@ import HeroText from './HeroText/HeroText';
 
 interface IProps{
   joinText?: string;
+  id: string;
   title: string;
   subtitle: string;
   heroTextChildren: JSX.Element,
@@ -18,11 +19,13 @@ interface IProps{
     right?: {
       size: number;
       backgroundColor: string;
-    }
+    },
+    sticky?: boolean
   }
 }
 
 const Hero: React.FC<IProps> = ({
+  id,
   joinText,
   title,
   subtitle,
@@ -37,6 +40,7 @@ const Hero: React.FC<IProps> = ({
       size: 50,
       backgroundColor: '#FFF'
     },
+    sticky: false
   },
   heroTextChildren,
   childrenRightSide,
@@ -45,11 +49,12 @@ const Hero: React.FC<IProps> = ({
     <StyledHeroWrapper 
       padding={layout.padding}
     >
-      <StyledSide position={layout.invert ? 'right' : 'left'} {...layout['left']}>
+      <StyledSide position={layout.invert ? 'right' : 'left'} {...layout['left']} id={id} sticky={layout.sticky}>
         <HeroText 
           joinText={joinText}
           title={title}
           subtitle={subtitle}
+          sticky={!!layout.sticky}
         >
           {heroTextChildren}
         </HeroText>

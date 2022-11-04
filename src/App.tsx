@@ -13,6 +13,7 @@ const App: React.FC = () => {
     <>
       <Header />
       <HeroSection
+        id="home"
         joinText="Join the our crypto exchange"
         title="Popular way to buy and sell crypto."
         subtitle="Besnik crypto is the community-run technology powering the cryptocurrency, ether and thousands of decentralized applications."
@@ -28,9 +29,11 @@ const App: React.FC = () => {
             size: 65,
             backgroundColor: "#FFF",
           },
+          sticky: true
         }}
       />
       <HeroSection
+        id="findout"
         joinText="Join the our crypto exchange"
         title="BCQ crypto lending, trading, and custody for worldwide"
         subtitle="Besnik crypto is the community-run technology powering the cryptocurrency, ether and thousands of decentralized applications."
@@ -50,6 +53,7 @@ const App: React.FC = () => {
         }}
       />
       <HeroSection
+        id="advantages"
         title="We make crypto easy"
         subtitle="Specific cryptocurrencies work and get a bit of  crypto to try out for yourself. Here are a few reasons why you should choose besnik crypto"
         heroTextChildren={<Button text="Learn more" variant="secondary"/>}
